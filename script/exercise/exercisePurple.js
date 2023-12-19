@@ -78,9 +78,10 @@ function transferTasks(array, item){
     if (index !== -1) { 
     const oldItem = array[index];
     array.splice(index, 1);
-    tasks.unshift(oldItem); 
+    array.unshift(oldItem); 
     };
 };
+
 //-----------------------------------------------------------------------------------------
 // дан url https://purpleschool.ru/profession/frontend
 // Нужно сделать функцию которая выводит в консоль -протокол -доменное имя -путь внутри сайта
@@ -97,4 +98,47 @@ function getUrl(url) {
 };
 
 getUrl(urlPurple);
-//-----------------------------------------------------------------------------------------
+
+//-----------------------------циклы------------------------------------------------------------
+// Вывести в консоль 'Я люблю JS !' проходя циклом в обратном порядке не используя reverse
+const arrLove = ['!', 'JS', 'люблю', 'Я'];
+const arrLoveNew = [];
+
+  for(let i = arrLove.length - 1; i >= 0; i--){
+	arrLoveNew.push(arrLove[i]);  
+};
+
+console.log(arrLoveNew.join(' '));
+
+//-----------------------------циклы------------------------------------------------------------
+// Есть выгрузка операций пользователя а так-же начальный баланс 100
+// Необходимо сделать расчёт: - Итогового баланса -Наличие отрицательного баланса
+const operations = [1000, -700, 300, -500, 10000];
+const startBalance = 100;
+
+function getBalance(arr, balance) {
+    let newBalance = balance;
+    for (const element of arr){
+        newBalance += element; 
+    }
+}
+
+function correctBalance(arr, balance){
+    let newBalance = balance;
+    let isOk = true;
+    for (const element of arr){
+        newBalance += element; 
+        if (newBalance < 0) {
+            isOk = false;
+            break;
+        };
+    };
+    return isOk;   
+}
+
+function getBalance(arr, balance) {
+    let newBalance = balance;
+    for (const element of arr){
+        newBalance += element; 
+    }
+}
