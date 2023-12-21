@@ -142,3 +142,26 @@ function getBalance(arr, balance) {
         newBalance += element; 
     }
 }
+
+//-----------------------------циклы------------------------------------------------------------
+// Имеется массив изменения цен, где внутри 1й элемент является ценой в момент x 
+// 2й ценой в момент Y. нужно преобразовать данные где будут отображены только положительные изменения цен
+const pricesTwo = [[100, 220], [120, 100], [200, 360]];
+
+const resultPrices = pricesTwo
+    .map(item =>item[1] - item[0])
+    .filter(pricesTwo => pricesTwo > 0);
+console.log(resultPrices)
+
+
+//----------------------------------------------------------------------------------
+// Найти среднее значение последовательности с помощью reduce\
+const arrB = [2, 4, 4, 12];
+
+const avg = arrB.reduce((acc, el, i) =>{
+    if (i != arrB.length -1) {
+        return acc + el;
+    } else {
+        return (acc + el) / arrB.length
+    }
+}, 0);
