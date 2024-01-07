@@ -2,12 +2,28 @@
 
 //-----------------------часть 1---------------------------
 // Сделайте калькулятор, который будет находить площадь и периметр квадрата.
+const areaSquare = (side, unit = 'см' ) =>{
+    console.log(`Площадь ${side * side} ${unit}:  Периметр ${4 * side} ${unit}. `)
+}
 
 // Сделайте калькулятор, который будет находить площадь и периметр прямоугольника.
+const areaRectangle  = (sideA, sideB, unit = 'см' ) =>{
+    console.log(`Площадь ${sideA * sideB} ${unit}:  Периметр ${2 * (sideA + sideB)} ${unit}. `)
+}
 
 // Сделайте калькулятор, который будет находить площадь круга и длину окружности.
+const areaCircle = (diameter) =>{
+    let area = diameter * diameter / 4 * 3.14 
+    let length = (diameter * 3.14).toFixed(1)
+    console.log(`Площадь ${area}. Длина окружности ${length}.`)
+}
 
 // Сделайте калькулятор, который будет находить площадь треугольника по трем сторонам.
+const areaTriangle  = (sideA, sideB, sideC ) =>{
+    let semiperimeter = (sideA + sideB + sideC) / 2;
+    let squareRoot = semiperimeter * ((semiperimeter - sideA) * (semiperimeter - sideC) * (semiperimeter - sideB));
+        console.log(`Площадь треугольника ${ Math.sqrt(squareRoot).toFixed(2)}. `)
+}
 
 //-----------------------часть 2---------------------------
 // Напишите скрипт, который будет находить корни квадратного уравнения. Для этого сделайте 3 инпута, в которые будут вводиться коэффициенты уравнения.
