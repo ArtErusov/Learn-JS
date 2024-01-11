@@ -25,14 +25,66 @@ const areaTriangle  = (sideA, sideB, sideC ) =>{
         console.log(`Площадь треугольника ${ Math.sqrt(squareRoot).toFixed(2)}. `)
 }
 
+
+
+
+
+
 //-----------------------часть 2---------------------------
 // Напишите скрипт, который будет находить корни квадратного уравнения. Для этого сделайте 3 инпута, в которые будут вводиться коэффициенты уравнения.
 
+// <input placeholder='Коэффициент a' type="number" id="a" />
+//        <input placeholder='Коэффициент b' type="number" id="b" />
+//       <input placeholder='Коэффициент c' type="number" id="c" />
+//    <button onclick="findRoots()">Найти корни</button>
+//    <div id="roots"></div> 
+function findRoots() {
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let c = Number(document.getElementById("c").value);
+
+    let discriminant = Math.pow(b, 2) - (4 * a * c);
+
+    if (discriminant > 0) {
+        let x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        let x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        document.getElementById("roots").textContent = "Корни уравнения: x1 = " + x1 + ", x2 = " + x2;
+    } else if (discriminant === 0) {
+        let x = -b / (2 * a);
+        document.getElementById("roots").textContent = "Уравнение имеет один корень: x = " + x;
+    } else {
+        document.getElementById("roots").textContent = "Уравнение не имеет действительных корней";
+    }
+}
+
+
 // Даны 3 инпута. В них вводятся числа. Проверьте, что эти числа являются тройкой Пифагора: квадрат самого большого числа должен быть равен сумме квадратов двух остальных.
 //с этой задачей не знаю как точно мне определить среднее число!!!
-const calcPif = (aMAX, b, c) => {
-    console.log((b ** 2) + (c ** 2) === aMAX ** 2 ? true : false)
+
+//        <input placeholder='число a' type="number" id="input1" />
+//        <input placeholder='число b' type="number" id="input2" />
+//        <input placeholder='число c' type="number" id="input3" />
+//        <button class='btn'>проверка чисел</button>
+//        <div id="roots"></div>
+
+
+const buttonPif = document.querySelector('.btn');
+buttonPif.addEventListener('click', function () {
+  let input1 = parseFloat(document.getElementById("input1").value);
+  let input2 = parseFloat(document.getElementById("input2").value);
+  let input3 = parseFloat(document.getElementById("input3").value);
+
+  let maxNum = Math.max(input1, input2, input3);
+
+  if (maxNum * maxNum == input1 * input1 + input2 * input2 ||
+      maxNum * maxNum == input1 * input1 + input3 * input3 ||
+      maxNum * maxNum == input2 * input2 + input3 * input3) {
+     document.getElementById("roots").textContent = "Введенные числа являются тройкой Пифагора.";
+  } else {
+     document.getElementById("roots").textContent = "Введенные числа не являются тройкой Пифагора.";
   }
+});
+
 
 // Дан инпут и кнопка. В инпут вводится число. По нажатию на кнопку выведите список делителей этого числа.
 
