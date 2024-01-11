@@ -29,8 +29,31 @@ const areaTriangle  = (sideA, sideB, sideC ) =>{
 // Напишите скрипт, который будет находить корни квадратного уравнения. Для этого сделайте 3 инпута, в которые будут вводиться коэффициенты уравнения.
 
 // Даны 3 инпута. В них вводятся числа. Проверьте, что эти числа являются тройкой Пифагора: квадрат самого большого числа должен быть равен сумме квадратов двух остальных.
+//с этой задачей не знаю как точно мне определить среднее число!!!
+const calcPif = (aMAX, b, c) => {
+    console.log((b ** 2) + (c ** 2) === aMAX ** 2 ? true : false)
+  }
 
 // Дан инпут и кнопка. В инпут вводится число. По нажатию на кнопку выведите список делителей этого числа.
+
+// <input type="number" id="numberInput" />
+// <button class='btn'>Показать делители</button>
+// <ul id="dividersList"></ul> 
+
+const buttonDel = document.querySelector('.btn');
+buttonDel.addEventListener('click', function () {
+    let number = document.getElementById('numberInput').value;
+    let dividersList = document.getElementById('dividersList');
+    dividersList.innerHTML = '';
+    for (let i = 1; i <= number; i++) {
+      if (number % i === 0) {
+        let listItem = document.createElement('li');
+        listItem.innerText = i;
+        dividersList.appendChild(listItem);
+      }
+    }
+  });
+
 
 // Даны 2 инпута и кнопка. В инпуты вводятся числа. По нажатию на кнопку выведите список общих делителей этих двух чисел.
 
