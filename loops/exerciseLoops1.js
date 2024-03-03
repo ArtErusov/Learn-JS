@@ -49,3 +49,27 @@ const resultPrices = pricesTwo
     .map(item =>item[1] - item[0])
     .filter(pricesTwo => pricesTwo > 0);
 console.log(resultPrices)
+
+// дан список задач, сделать функции :
+//-Добавление задачи в конец -удаление задачи по названию -Перенос задачи в начало списка по названию
+const tasks = ['Задача 1', 'Задача 2', 'Задача 3' ]
+
+function addTasks(array, add = 'Новая задача'){
+array.push(add)
+};
+
+function delTasks(array, item){
+    const index = array.indexOf(item);
+    if(index !== -1){
+        array.splice(index, 1);  
+    };
+};
+
+function transferTasks(array, item){
+    const index = array.indexOf(item);
+    if (index !== -1) { 
+    const oldItem = array[index];
+    array.splice(index, 1);
+    array.unshift(oldItem); 
+    };
+};

@@ -42,3 +42,20 @@ function numCartAbscond(num) {
     return num;
 }
 console.log(numCartAbscond(numCart));
+
+// дан url https://purpleschool.ru/profession/frontend
+// Нужно сделать функцию которая выводит в консоль -протокол -доменное имя -путь внутри сайта
+const urlPurple = 'https://purpleschool.ru/profession/frontend';
+
+function getUrl(url) {
+    const data = url.split('/');
+    if(data[0] === 'https:' || data[0] === 'http:') {
+        console.log(`Протокол: ${data[0]}`);
+        console.log(`Доменное имя: ${data[2]}`);
+        dataMod = data.slice(3, data.length);
+        console.log(`Путь внутри сайта: /${dataMod.join('/')}`);   
+    };   
+};
+
+getUrl(urlPurple);
+
